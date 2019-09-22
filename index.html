@@ -1,0 +1,126 @@
+<!doctype html>
+<html lang="en">
+<head>
+	
+  <meta charset="utf-8">
+  <meta name="google-signin-client_id" content="795319389133-nlt0t9grvr8tb8biahb9iv91lsqmqci4.apps.googleusercontent.com">
+  <title>Test</title>
+  <base href="/">
+  <script src="https://apis.google.com/js/platform.js" async defer></script>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+  <link rel="stylesheet" href="styles.css"></script>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
+
+
+</head>
+<body>
+<!-- 	<div class="g-signin2" data-onsuccess="onSignIn"></div>
+	<a href="#" onclick="signOut();">Sign out</a> -->
+
+
+<div class="wrapper fadeInDown">
+  <div id="formContent">
+    <!-- Tabs Titles -->
+
+    <!-- Icon -->
+    <div class="fadeIn first">
+      <h3 style="color:#7B7472"> Login to your Google account! </h3>
+    </div><br>
+
+    <!-- Login Form -->
+	<div align="center" class="g-signin2" data-onsuccess="onSignIn"></div><br>
+	<a href="#" onclick="signOut();">Sign out</a><br>
+
+	<script>
+		function onSignIn(googleUser) {
+		  var profile = googleUser.getBasicProfile();
+		  console.log('ID: ' + profile.getId()); // Do not send to your backend! Use an ID token instead.
+		  console.log('Name: ' + profile.getName());
+		  document.getElementById("welcome_name").innerHTML = "Welcome, " + profile.getName()+ "!";
+		  console.log('Image URL: ' + profile.getImageUrl());
+		  console.log('Email: ' + profile.getEmail()); // This is null if the 'email' scope is not present.
+		}
+
+
+	</script>
+
+	<script>
+	  function signOut() {
+	    var auth2 = gapi.auth2.getAuthInstance();
+	    auth2.signOut().then(function () {
+	      console.log('User signed out.');
+	    });
+	  }
+	</script>
+
+
+
+
+  </div>
+    <div id="wc_id" style="display:none;" class="fadeIn first">
+    	<br>
+        <h3 style="color:#7B7472" id="welcome_name"> </h3>
+      
+<!-- 		&nbsp &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp &nbsp &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp <i class="fa fa-angle-double-down" style="font-size:48px;color:white"></i>
+		<br> -->
+<!--     <div class="container h-100">
+
+    </div>
+ -->
+
+</div><br>
+
+<div class="container h-100" style="display:none;">
+  <div class="d-flex justify-content-center h-100">
+    <div class="searchbar">
+      <input class="search_input" type="text" name="" placeholder="Search...">
+      <a href="#" class="search_icon" ><i class="fas fa-search"></i></a>
+    </div>
+  </div>  
+</div>
+
+<div class="card" style="width: 18rem;display:none;">
+  <div class="card-body">
+    <h5 class="card-title">Card title</h5>
+    <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
+    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+    <a href="#" class="card-link">Card link</a>
+    <a href="#" class="card-link">Another link</a>
+  </div>
+</div>
+
+
+<script>
+
+$(function() {
+		
+    $( ".g-signin2" ).click(function() {
+        $( "#formContent" ).toggle();
+        $("#wc_id").toggle();
+        $(".container").toggle();
+    });
+
+    $(".search_icon").click(function() {
+        $(".container").toggle();
+        $("#wc_id").toggle();
+        $(".card").toggle();           
+    });
+
+      
+});
+</script>
+
+
+
+
+
+</body>
+</html>
